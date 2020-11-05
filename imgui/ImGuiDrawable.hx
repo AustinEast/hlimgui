@@ -231,6 +231,32 @@ class ImGuiDrawable extends h2d.Drawable {
 			ImGui.setDisplaySize(scene.width, scene.height);
 			this.scene_size = {width: scene.width, height:scene.width};
 		}
+
+		hxd.System.setNativeCursor(
+		switch ImGui.getMouseCursor() {
+			case None:
+				Hide;
+			case Arrow:
+				Default;
+			case TextInput:
+				TextInput;
+			case ResizeAll:
+				Move;
+			case ResizeNS:
+				Move;
+			case ResizeEW:
+				Move;
+			case ResizeNESW:
+				Move;
+			case ResizeNWSE:
+				Move;
+			case Hand:
+				Button;
+			case NotAllowed:
+				Default;
+			case COUNT:
+				Default;
+		});
 	}
 
 	private function onEvent(event: hxd.Event) {
